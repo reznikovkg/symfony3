@@ -1,0 +1,9 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+    {% for category in categories %}
+        <p>
+            {{ category.name }}
+        </p>
+    {% endfor %}
+{% endblock %}

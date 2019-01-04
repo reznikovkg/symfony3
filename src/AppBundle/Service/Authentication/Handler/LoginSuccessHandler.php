@@ -23,15 +23,17 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-        if ($this->security->isGranted('ROLE_OPERATOR'))
-        {
-            $response = new RedirectResponse($this->router->generate('operator.main'));
-        }
-        if ($this->security->isGranted('ROLE_AGENT'))
-        {
-            $response = new RedirectResponse($this->router->generate('agent.main'));
-        }
+//        $response = new RedirectResponse($this->router->generate('agent.main'));
+//
+//        if ($this->security->isGranted('ROLE_OPERATOR'))
+//        {
+//            $response = new RedirectResponse($this->router->generate('operator.main'));
+//        }
+//        if ($this->security->isGranted('ROLE_AGENT'))
+//        {
+//            $response = new RedirectResponse($this->router->generate('agent.main'));
+//        }
 
-        return $response;
+        return new RedirectResponse($this->router->generate('admin.main'));
     }
 }
