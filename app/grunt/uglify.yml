@@ -1,0 +1,22 @@
+main:
+  options:
+    mangle:
+      reserved: [ "jQuery" ]
+#    sourceMap: false
+    beautify: true
+  files:
+    web/dynamic/js/main.js:
+      - app/Resources/js/admin/main.js
+    web/dynamic/js/main_vendor.js:
+      - app/Resources/js/admin/main.vue.js
+
+#vendors:
+#  options:
+#    mangle:
+#      except: [ "jQuery", "Backbone" ]
+#    sourceMap: false
+#    beautify: true
+# files:
+#   web/js/backend_head.js:
+#      - vendor-web/jquery/dist/jquery.min.js
+#     - vendor-web/jquery-ui/jquery-ui.min.js

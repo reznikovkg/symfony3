@@ -1,0 +1,44 @@
+default:
+    files:
+        -
+            expand: true
+            flatten: false
+            cwd: ./vendor/nelmio/api-doc-bundle/Resources/public
+            src:
+                - "**/*.*"
+            dest: web/bundles/nelmioapidoc/
+
+#        -
+#            expand: true
+#            flatten: true
+#            src:
+#                - ./app/Resources/img/favicon.ico
+#            dest: web/static/img/
+#
+#        -
+#            expand: true
+#            flatten: false
+#            cwd: ./app/Resources/img/user/
+#            src:
+#                - "**/*.*"
+#            dest: web/static/img/user/
+#
+#        -
+#            expand: true
+#            flatten: true
+#            src:
+#                - ./node_modules/vue/dist/vue.min.js
+#            dest: web/static/js
+#        -
+#            expand: true
+#            flatten: true
+#            src:
+#                - ./node_modules/axios/dist/axios.min.js
+#            dest: web/static/js
+#        -
+#            expand: true
+#            flatten: false
+#            cwd: ./node_modules/ckeditor/
+#            src:
+#                - "**/*.*"
+#            dest: web/static/ckeditor

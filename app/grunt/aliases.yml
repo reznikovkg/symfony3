@@ -1,0 +1,16 @@
+default:
+  tasks:
+    - clean
+#    - mkdir
+    - copy
+#    - uglify
+#    - less
+#    - watch
+
+#prod:
+#  tasks:
+#    - clean
+#    - mkdir
+#    - copy
+#    - less:prod_frontend
+#    - uglify

@@ -1,0 +1,9 @@
+admin:
+  options:
+    optimization: 2
+    compress: true
+  files:
+    web/dynamic/css/admin.css:
+      - app/Resources/css/admin/main.less
+      - app/Resources/css/admin/include/nav.less
+      - app/Resources/css/admin/include/aside.less

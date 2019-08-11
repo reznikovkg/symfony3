@@ -22,5 +22,9 @@ services:
         arguments:  ['@mailer', '@doctrine.orm.entity_manager', '@templating.engine.twig']
         public: true
 
+
+    #FIXTURES
+    AppBundle\Fixtures\AppFixtures:
+        tags: [doctrine.fixture.orm]
 #imports:
 #    - { resource: services/service_upload_files.yml }

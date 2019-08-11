@@ -1,0 +1,11 @@
+less_admin:
+  files:
+    - "app/Resources/css/**/*.less"
+  tasks:
+    - less:admin
+
+uglify:
+  files:
+    - "app/Resources/js/**/*.js"
+  tasks:
+    - uglify:main

@@ -1,6 +1,6 @@
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: bcrypt
+      FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
         ROLE_MODERATOR:    ROLE_USER
@@ -8,14 +8,23 @@ security:
         ROLE_SUPER_ADMIN:  [ROLE_MODERATOR, ROLE_ADMIN]
 
     providers:
-        fos_userbundle:
+        fos_bundle:
             id: fos_user.user_provider.username
 
+#        user_admin:
+#            entity:
+#                class: AppBundle:UserAdmin
+#                property: username
+#        user:
+#            entity:
+#                class: AppBundle:User
+#                property: username
+
     firewalls:
-        main:
+        fos_bundle:
             pattern: ^/
             form_login:
-                provider: fos_userbundle
+                provider: fos_bundle
                 csrf_token_generator: security.csrf.token_manager
                 success_handler: app.handler.login_success
             logout:
@@ -24,14 +33,28 @@ security:
             anonymous:  true
             access_denied_handler: app.handler.access_denied
 
+#        user_admin:
+#            anonymous: ~
+#            http_basic: ~
+#            provider: user_admin
+#
+#        user:
+#            anonymous: ~
+#            http_basic: ~
+#            provider: user
+
     access_control:
 
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
+        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/api/user, role: ROLE_USER }
+
         - { path: ^/admin, role: ROLE_ADMIN }
 
-        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/doc, role: ROLE_ADMIN }
 
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

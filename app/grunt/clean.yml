@@ -1,0 +1,5 @@
+default:
+  src:
+    - "web/dynamic"
+    - "web/static"
+    - "web/bundles"

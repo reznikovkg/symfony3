@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: ru
+    locale: en
 
 framework:
     templating:
@@ -80,10 +80,42 @@ sensio_framework_extra:
    router:
         annotations: false
 
+# FOS User Configuration
 fos_user:
-    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
+    db_driver: orm
+    firewall_name: fos_bundle
     user_class: AppBundle\Entity\User
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+# Nelmio API DOC Configuration
+nelmio_api_doc:
+    documentation:
+        host: 127.0.0.1:8000
+        schemes: [http, https]
+        info:
+            title: My App
+            description: This is an awesome app!
+            version: 1.0.0
+        tags:
+            - name: "All"
+              description: "Chapter of open API"
+            - name: "Security"
+              description: "Chapter for user identification"
+            - name: "Profile"
+              description: "Chapter for user profile"
+    areas:
+        path_patterns:
+            - ^/api
+
+# Nelmio CORS Configuration
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: ['*']
+        allow_headers: ['*']
+        allow_methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+        max_age: 3600
+        hosts: []
+        origin_regex: false
